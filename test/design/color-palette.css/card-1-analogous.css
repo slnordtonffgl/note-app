@@ -1,0 +1,37 @@
+:root{
+    --primary-colora: #a33030;
+    --secondary-colora:rgb(162, 165, 57); 
+    --tertiary-colora:#ffffad;
+}
+.card-1a {
+      background-color: #ffd38d;
+      width: 250px;
+      padding: 2px;
+      border-radius: 25px;
+      overflow: hidden;
+  }
+  .card-1a-frame {
+      background-color: var( --tertiary-colora);
+      width: 250px;
+      height: 200px;
+      overflow: hidden;
+  }
+  .card-1a-frame img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+  }
+  .card-1a-title {
+      color: var(--primary-colora);
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 600;
+  }
+  .card-1a-info {
+      color:var(--secondary-colora);
+      font-weight: 200px;
+      line-height: 2.10;
+  }
+  .card-1a-text {
+      padding: 5px;
+  }
