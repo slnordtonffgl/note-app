@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hierarchy</title>
+    <link rel="stylesheet" href="hp-css/header.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --primary-color: #faf7f7;
+            --secondary-color: #7c078b;
+            --tertiary-color: #e8e800;
+        }
+        
+        body {
+            background-color: #fffdc2;
+        }
+        
+        .container {
+            display: flex;
+            gap: 24px;
+            height: 1200px;
+        }
+        
+        .main {
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .side {
+            background-color: darkgray;
+            flex-grow: 1;
+        }
+        
+        .video-frame {
+            background-color: #000000;
+            height: 360px;
+        }
+        
+        .video-info {
+            background-color: var(--secondary-color);
+            padding: 16px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        
+        .video-title {
+            font-weight: bold;
+            font-size: 24px;
+            color: var( --primary-color)
+        }
+        
+        .video-subtitle {
+            font-size: 12px;
+            color: var( --tertiary-color);
+        }
+        
+        .comments {
+            background-color: rgb(181, 180, 180);
+            height: 200px;
+            margin-top: 24px;
+            flex-grow: 1;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .comment {
+            background-color: var(--secondary-color);
+            display: flex;
+            padding: 10px;
+            
+        }
+        
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background-color: #a3a3a3;
+            border-radius: 50px;
+            
+        }
+        
+        .username {
+            font-size: 12px;
+            color: var(--tertiary-color);
+            
+        }
+        
+        .comment-text {
+            color: var(--primary-color);
+             
+        }
+        
+      
+
+    </style>
+</head>
+
+<body>
+    <div class="header">Иерархический Экземпляр</div>
+    <div class="container">
+        <div class="main">
+            <div class="video-frame"></div>
+            <div class="video-info">
+                <div class="video-title">ЕЕЕЕ крутышки длеют сальто 24 часа челендж🤩</div>
+                <div class="video-subtitle">20.06.2017</div>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <div>
+                        <div class="username">@Username</div>
+                        <div class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, odio, quas. Porro.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side"></div>
+    </div>
+</body>
+
+</html>

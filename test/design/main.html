@@ -1,10 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>main</title>
+    <style>
+        h1 {
+            background-color: rgb(10, 10, 10);
+            text-align: center;
+            margin: 0px;
+            color: aliceblue;
+        }
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0px;
+        }
+        
+        #note-gallery {
+            background-color: #696969;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 10px;
+            align-content: flex-start;
+        }
+        
+        .note {
+            background-color: #cccccc;
+            width: 200px;
+            height: 200px;
+            border-style: solid;
+            overflow: hidden;
+        }
+        
+        .note-delete-container {
+            text-align: right;
+        }
+
+    </style>
 </head>
+
 <body>
-    
+    <h1>Note App</h1>
+    <div id="note-gallery">
+        <div class="note">
+            <div class="note-delete-container">
+                <button class="note-delete">x</button>
+            </div>
+            <div class="note-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum
+        </div>
+    </div>
+     </div>
+    <script>
+        var note = document.querySelector("#note-gallery").innerHTML;
+        
+        /* 
+          функциональноу требования:
+            1.Обращение к шаблону (есть!)
+            2.Размножить шаблон на странице
+                2.1создать цикл (while)
+                 -var i, i++ while(i<end),var end
+                2.2добавлять шаблон  в галлерею (innerHTML)
+                    -innerHTML += note
+        */
+        var i = 0
+        var end = 10
+        while (i<end){
+            console.log(i)
+            document.querySelector("#note-gallery").innerHTML +=note
+            i++
+            
+        }
+</script>
 </body>
+
 </html>

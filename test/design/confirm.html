@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confir</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0px;
+            background-color: #bf67ff;
+        }
+        
+        #test-bg {
+            width: 100%;
+            height: 300px;
+            background-color: #fa71ff;
+        }
+        
+        #confir-popup {
+            background-color: rgba(0, 0, 0, 0.35);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #confir-box {
+            background-color: rgba(216, 255, 247, 0.79);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+            border-style: solid;
+            border-radius: 20px;
+            font-family: sans-serif;
+        }
+        
+        #confirm-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #ffeb00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            flex-direction: column;
+            font-size: 32px;
+        }
+        #confirm-button{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;   
+            
+        }
+        #yes-btn {
+            background-color: #5dff7c;
+            font-family: sans-serif;
+            padding: 4px 16px;
+            border-radius: 15px;
+        }
+        
+        #no-btn {
+            background-color: #ff64bd;
+            font-family: sans-serif;
+            padding: 4px 16px;
+             border-radius: 15px;    
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="test-bg"></div>
+    <div id="confir-popup">
+        <div id="confir-box">
+            <div id="confirm-icon">!</div>
+            <div id="confirm-text">Вы уверены что хотите удалить заметку?</div>
+            <div id="confirm-button">
+                <button id="yes-btn">Да</button>
+                <button id="no-btn">Нет</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
