@@ -27,6 +27,7 @@
             justify-content: space-evenly;
             gap: 10px;
             align-content: flex-start;
+            
         }
         
         .note {
@@ -35,12 +36,22 @@
             height: 200px;
             border-style: solid;
             overflow: hidden;
+            border-radius: 10px;
         }
         
         .note-delete-container {
             text-align: right;
         }
-
+        #note-add-btn{
+            position:fixed;
+            background-color: #fcfeff;
+            right: 20px;
+            bottom: 50px;
+            border-radius: 100%;
+            font-size: 60px;
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -56,6 +67,8 @@
         </div>
     </div>
      </div>
+     <button id="note-add-btn">+</button>
+     
     <script>
         var note = document.querySelector("#note-gallery").innerHTML;
         
