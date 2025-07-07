@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #n1 {
+            background-color: aqua;
+        }
+
+        #n2 {
+            background-color: #c400ff;
+        }
+
+        #n3 {
+            background-color: #f0ff36;
+        }
+
+        #n1,
+        #n2,
+        #n3 {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="n1" onclick="n1()">
+        <div id="n2" onclick="n2()">
+            <div id="n3" onclick="n3()">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function n1() {
+            console.log("голубой!")
+        }
+
+        function n2() {
+            console.log("фиолетовый!")
+        }
+
+        function n3() {
+            console.log("желтый!")
+            event.stopPropagation()
+        }
+    </script>
+</body></html>

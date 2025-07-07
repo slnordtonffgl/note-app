@@ -1,95 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>main</title>
+    <title>Main</title>
     <style>
-        h1 {
-            background-color: rgb(10, 10, 10);
-            text-align: center;
-            margin: 0px;
-            color: aliceblue;
-        }
-        
-        body {
+        body{
             width: 100vw;
             height: 100vh;
-            margin: 0px;
+            margin: 0;
         }
-        
-        #note-gallery {
-            background-color: #696969;
-            width: 100vw;
-            height: 100vh;
+        #note-gallery{
+            background-color: #646464;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
-            gap: 10px;
+            gap: 20px;
             align-content: flex-start;
-            
         }
-        
-        .note {
+        .note{
             background-color: #cccccc;
-            width: 200px;
             height: 200px;
+            width: 200px;
             border-style: solid;
+            /*flex-grow: 1;*/
             overflow: hidden;
-            border-radius: 10px;
         }
         
-        .note-delete-container {
+        .note-delete-container{
             text-align: right;
         }
+        
         #note-add-btn{
-            position:fixed;
-            background-color: #fcfeff;
+            position: fixed;
             right: 20px;
-            bottom: 50px;
+            bottom: 20px;
+            font-size: 80px;
             border-radius: 100%;
-            font-size: 60px;
             width: 100px;
             height: 100px;
         }
+        
     </style>
 </head>
-
 <body>
     <h1>Note App</h1>
     <div id="note-gallery">
         <div class="note">
-            <div class="note-delete-container">
-                <button class="note-delete">x</button>
-            </div>
-            <div class="note-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum
+           <div class="note-delete-container">
+               <button class="note-delete">X</button>
+           </div>
+            <div class="note-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ad laborum maxime commodi, quos enim ullam cum minima, voluptatum, assumenda sunt! Aut suscipit obcaecati, at! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ad laborum maxime commodi, quos enim ullam cum minima, voluptatum, assumenda sunt! Aut suscipit obcaecati, at!</div>
         </div>
     </div>
-     </div>
-     <button id="note-add-btn">+</button>
-     
+    <button id="note-add-btn">+</button>
+    
     <script>
         var note = document.querySelector("#note-gallery").innerHTML;
         
         /* 
-          функциональноу требования:
-            1.Обращение к шаблону (есть!)
-            2.Размножить шаблон на странице
-                2.1создать цикл (while)
-                 -var i, i++ while(i<end),var end
-                2.2добавлять шаблон  в галлерею (innerHTML)
-                    -innerHTML += note
+            Функциональные Требования:
+                1. Обращение к шаблону (есть!)
+                2. Размножить шаблон на странице
+                    2.1 Создать цикл (while)
+                        - var i, i++, while(i<end), var end
+                    2.2 Добавлять шаблон в note-gallery (innerHTML)
+                        - innerHTML += note
         */
+        
         var i = 0
-        var end = 10
+        var end = 50
         while (i<end){
             console.log(i)
-            document.querySelector("#note-gallery").innerHTML +=note
+            document.querySelector("#note-gallery").innerHTML += note
             i++
-            
         }
-</script>
+    </script>
 </body>
-
 </html>

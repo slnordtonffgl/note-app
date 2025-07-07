@@ -1,94 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Confir</title>
+    <title>Confirm</title>
     <style>
         body {
+            margin: 0;
             width: 100vw;
             height: 100vh;
-            margin: 0px;
-            background-color: #bf67ff;
+            background-color: cornflowerblue;
         }
-        
-        #test-bg {
+        #test-bg{
             width: 100%;
             height: 300px;
-            background-color: #fa71ff;
+            background-color: orange;
         }
-        
-        #confir-popup {
-            background-color: rgba(0, 0, 0, 0.35);
-            width: 100%;
+        #confirm-popup{
+            background-color: rgba(0,0,0,0.5);
             height: 100%;
+            width: 100%;
             position: absolute;
             top: 0;
             left: 0;
             display: flex;
             justify-content: center;
-            flex-direction: column;
             align-items: center;
         }
-        
-        #confir-box {
-            background-color: rgba(216, 255, 247, 0.79);
+        #confirm-box {
+            background-color: #8e8e8e;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            padding: 10px;
+            border-radius: 5px;
             border-style: solid;
-            border-radius: 20px;
-            font-family: sans-serif;
+            border-width: 1px;
+            border-color: rgba(0,0,0,0.5);
+            padding: 20px;
+            font-size: 20px;
         }
-        
-        #confirm-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #ffeb00;
+        #confirm-icon{
+            width: 60px;
+            height: 60px;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 100%;
-            flex-direction: column;
             font-size: 32px;
+            font-weight: 900;
         }
-        #confirm-button{
+        #confirm-buttons{
             display: flex;
+            justify-content: space-between;
             width: 100%;
-            justify-content: space-between;   
-            
         }
-        #yes-btn {
-            background-color: #5dff7c;
-            font-family: sans-serif;
+        #confirm-buttons #yes-btn{
+            background-color: #00d300;
+            font-size: 20px;
             padding: 4px 16px;
-            border-radius: 15px;
         }
-        
-        #no-btn {
-            background-color: #ff64bd;
-            font-family: sans-serif;
+        #confirm-buttons #no-btn{
+            background-color: red;
+            font-size: 20px;
             padding: 4px 16px;
-             border-radius: 15px;    
         }
-
     </style>
 </head>
-
 <body>
-    <div id="test-bg"></div>
-    <div id="confir-popup">
-        <div id="confir-box">
+   <div id="test-bg"></div>
+    <div id="confirm-popup">
+        <div id="confirm-box">
             <div id="confirm-icon">!</div>
-            <div id="confirm-text">Вы уверены что хотите удалить заметку?</div>
-            <div id="confirm-button">
+            <div id="confirm-text"> Вы уверены, что хотите удалить заметку? </div>
+            <div id="confirm-buttons">
                 <button id="yes-btn">Да</button>
                 <button id="no-btn">Нет</button>
             </div>
         </div>
     </div>
 </body>
-
 </html>

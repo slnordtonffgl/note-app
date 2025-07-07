@@ -1,0 +1,41 @@
+:root{
+    --primary-colorc: #600b0b;
+    --secondary-colorc: #5389b7;
+    --tertiary-colorc: #c3e1eb;
+}
+
+.card-1c {
+    background-color: var(--tertiary-colorc);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-1c-frame {
+    background-color: var(--secondary-colorc);
+    width: 200px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.card-1c-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-1c-text {
+    padding: 10px;
+}
+
+.card-1c-title {
+    color: var(--primary-colorc);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-1c-info {
+    color: var(--secondary-colorc);
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 2.1;
+}

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!--главная старица -->
+    <!-- Главная Страница -->
     <div id="main">
         <h1>Note App</h1>
         <div id="note-gallery">
@@ -18,42 +18,25 @@
         </div>
         <button id="note-add-btn" onclick="OpenModal()">+</button>
     </div>
+
+    <!-- Модальное Окно -->
     <div id="modal">
         <button id="back-btn" onclick="CloseModal()">&lt;</button>
         <div id="note-name">Заметка</div>
         <textarea id="note-text"></textarea>
-
-        <!--модальное окно-->
-
         <div id="modal-buttons">
             <button id="btn-delete">Удалить</button>
             <button id="btn-save" onclick="SaveNote()">Сохранить</button>
         </div>
     </div>
+
+
+
     <script>
         var noteIndex = localStorage.getItem("na_noteIndex")
+
         if (noteIndex === null)
             noteIndex = 0
-
-        function DevCreateNotes(end) {
-            var text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum consequuntur ipsum ex natus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa omnis cum"
-            var note =
-                `<div class="note">
-                <div class="note-delete-container">
-                    <button class="note-delete">x</button>
-                </div>
-                <div class="note-content">${text}</div>
-            </div>`;
-
-            var i = 0
-            while (i < end) {
-                console.log(i)
-                document.querySelector("#note-gallery").innerHTML += note
-                i++
-            }
-        }
-
-        //DevCreateNotes(3)
 
         function OpenModal() {
             document.querySelector("#main").style.display = "none"
@@ -70,11 +53,11 @@
             var text = textArea.value
             var gallery = document.querySelector("#note-gallery")
 
-
-
-            gallery.innerHTML += `<div class="note">
+            gallery.innerHTML +=
+                `<div class="note" onclick="EditNote()">
                 <div class="note-delete-container">
-                    <button class="note-delete">x</button>
+                    <input type="checkbox">
+                    <button class="note-delete" onclick="DeleteNote()">X</button>
                 </div>
                 <div class="note-content">${text}</div>
             </div>`
@@ -84,34 +67,83 @@
 
             localStorage.setItem("na_note" + noteIndex, text)
 
+
             noteIndex++
             localStorage.setItem("na_noteIndex", noteIndex)
         }
 
         function LoadNote() {
             var gallery = document.querySelector("#note-gallery")
-
+            gallery.innerHTML = ""
             var i = 0
-            noteIndex = localStorage.getItem("na_noteIndex")
-        if (noteIndex === null)
-            noteIndex = 0
-            
-            while (i < noteIndex) {
 
+            noteIndex = localStorage.getItem("na_noteIndex")
+            if (noteIndex === null)
+                noteIndex = 0
+
+            while (i < noteIndex) {
                 var text = localStorage.getItem("na_note" + i)
-                gallery.innerHTML +=
-                    `<div class="note">
-                <div class="note-delete-container">
-                    <button class="note-delete">x</button>
-                </div>
-                <div class="note-content">${text}</div>
-            </div>`
+                if (text != null) {
+
+                    gallery.innerHTML +=
+                        `<div class="note" onclick="EditNote()">
+                    <div class="note-delete-container">
+                        <input type="checkbox">
+                        <button class="note-delete" onclick="DeleteNote()">X</button>
+                    </div>
+                    <div class="note-content">${text}</div>
+                </div>`
+                }
                 i++
+
             }
         }
+
+        function DeleteNote() {
+            console.log("УДАЛЕНИЕ ЗАМЕТКИ!!!")
+            var notes = document.querySelectorAll(".note")
+
+            console.log(notes)
+
+            var i = 0
+            while (i < notes.length) {
+
+                var note = notes[i]
+                if (note === undefined) {
+                    continue
+                    i++
+                }
+
+
+                var checkbox = note.querySelector("input")
+
+                if (checkbox.checked === true) {
+                    var valueToDelete = note.querySelector(".note-content").textContent
+
+                    console.log("valueToDelete:", valueToDelete)
+
+                    var i = 0
+                    while (i < noteIndex) {
+                        var key = "na_note" + i
+                        var savedNote = localStorage.getItem(key)
+
+                        if (savedNote != null) {
+                            if (savedNote === valueToDelete) {
+                                localStorage.removeItem(key)
+                            }
+                        }
+                        i++
+                    }
+
+
+                    i++
+                }
+                LoadNote()
+            }
+        }
+            function EditNote(){
+                console.log("редактирование заметки!!!")
+            }
         LoadNote()
-
     </script>
-</body>
-
-</html>
+</body></html>
