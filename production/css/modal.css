@@ -1,40 +1,67 @@
 #modal {
-    height: 100vw;
+    --head-height: 50px;
+    height: 95vh;
     display: none;
+    flex-direction: column;
+
 }
 
 #modal-buttons {
     display: flex;
     gap: 20px;
+    flex-grow: 0.5;
 }
 
 #btn-delete {
     font-size: 24px;
-    background-color: red;
+    background-color: var(--button-1);
+    color: var(--button-bg-1);
     flex-grow: 1;
+    border-style: solid;
+    border-radius: 10px;
+    
+   
+
+}
+
+#btn-delete:hover {
+    transform: scale(1.1)
 }
 
 #btn-save {
     font-size: 24px;
-    background-color: green;
+    background-color: var(--button-2);
     flex-grow: 3;
+    color: var(--button-bg-2);
+    border-style: solid;
+    border-radius: 10px;
+
+}
+
+
+
+btn-save:hover {
+    transition: 0.25s;
+
 }
 
 #note-text {
-    width: 100%;
-    height: 100%;
     resize: none;
     font-size: 24px;
+    flex-grow: 15;
+
 }
 
 #note-name {
     font-size: 42px;
     text-align: center;
+    background-color: var(--p-color);
+    height: var(--head-height);
 }
 
 #back-btn {
     position: absolute;
     font-size: 24px;
-    width: 50px;
-    height: 50px;
+    width: var(--head-height);
+    height: var(--head-height);
 }

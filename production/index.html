@@ -25,22 +25,27 @@
         <div id="note-name">Заметка</div>
         <textarea id="note-text"></textarea>
         <div id="modal-buttons">
-            <button id="btn-delete">Удалить</button>
-            <button id="btn-save" onclick="SaveNote()">Сохранить</button>
+            <button id="btn-delete">Удалить💔</button>
+            <button id="btn-save" onclick="SaveNote()">Сохранить🧡</button>
         </div>
     </div>
 
-
-
+    <!-- меню управления-->
+    <div id="control-menu">
+        <button id="ctrl-menu-delete" onclick="DeleteNote()">удалить</button>
+    </div>
     <script>
         var noteIndex = localStorage.getItem("na_noteIndex")
+
+        var controlMenu = document.querySelector("#control-menu")
+        controlMenu.style.display = "none"
 
         if (noteIndex === null)
             noteIndex = 0
 
         function OpenModal() {
             document.querySelector("#main").style.display = "none"
-            document.querySelector("#modal").style.display = "block"
+            document.querySelector("#modal").style.display = "flex"
         }
 
         function CloseModal() {
@@ -55,9 +60,9 @@
 
             gallery.innerHTML +=
                 `<div class="note" onclick="EditNote()">
-                <div class="note-delete-container">
+                <div class="note-delete-container" onclick="ShowControlMenu()">
                     <input type="checkbox">
-                    <button class="note-delete" onclick="DeleteNote()">X</button>
+                    
                 </div>
                 <div class="note-content">${text}</div>
             </div>`
@@ -88,8 +93,8 @@
                     gallery.innerHTML +=
                         `<div class="note" onclick="EditNote()">
                     <div class="note-delete-container">
-                        <input type="checkbox">
-                        <button class="note-delete" onclick="DeleteNote()">X</button>
+                        <input type="checkbox" onclick="ShowControlMenu()">
+                      
                     </div>
                     <div class="note-content">${text}</div>
                 </div>`
@@ -141,9 +146,32 @@
                 LoadNote()
             }
         }
-            function EditNote(){
-                console.log("редактирование заметки!!!")
+
+        function EditNote() {
+            console.log("редактирование заметки!!!")
+        }
+
+        function ShowControlMenu() {
+            var boxCheckd = false
+
+            var checkboxes = document.querySelectorAll(".note input")
+
+            var i = 0
+            while (i < checkboxes.length) {
+                if (checkboxes[i].checked) {
+                    boxCheckd = true
+                    break
+                }
+                i++
+
             }
+
+            if (boxCheckd) {
+                controlMenu.style.display = "block"
+            } else {
+                controlMenu.style.display = "none"
+            }
+        }
         LoadNote()
     </script>
 </body></html>
