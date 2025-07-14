@@ -22,8 +22,9 @@
     border-radius: 10px;
     box-shadow: 0px 4px 6px var(--shadow-1);
     transition: 0.25s;
-    
+
 }
+
 .note:hover {
     transform: scale(1.01)
 }
@@ -61,10 +62,31 @@
     height: 100px;
     transition: 0.25s;
 }
+
 #note-add-btn:hover {
     transform: scale(1.1)
 }
 
 #note-add-btn:active {
     transform: scale(0.9)
+}
+
+#control-menu {
+    justify-content: center;
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    text-align: center;
+
+}
+
+#ctrl-menu-delete {
+    color: #d2ff14;
+    padding: 10px;
+    background-color: #ff7c2a;
+    border-radius: 10px;
+
 }
