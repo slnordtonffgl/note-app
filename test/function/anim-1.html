@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимация</title>
+    <style>
+        .Loading-ball {
+            --size: 40px;
+            background-color: #ffce00;
+            border-radius: 100%;
+            width: var(--size);
+            height: var(--size);
+            animation-name:none;
+            /*имя*/
+            animation-duration: 1s;
+            /*длительность*/
+            animation-iteration-count: infinite;
+            /*колличество выполнений*/
+            animation-delay: 2s;
+            /*задержка*/
+            animation-timing-function: ease-in-out;
+            /*поведения движения*/
+            animation-fill-mode: forwards;
+            /*остаетсая в конце*/
+        }
+
+        @keyframes Bounce {
+            0% {
+                transform: translateY(0px);
+                animation-timing-function: ease-in;
+                
+            }
+
+            45% {
+                transform: translateY(100px);
+            }
+
+            50% {
+                transform: translateY(100px)scaleY(0.6);
+                animation-timing-function: ease-out;
+            }
+
+            60% {
+                transform: translateY(90px);
+            }
+
+            100% {
+                transform: translateY(0px);
+                animation-timing-function: ease-in;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Loading-ball"> (0_0 )</div>
+    <script>
+        function StartBounce(){
+           var ball  = document.querySelector(".Loading-ball")
+           ball.style.animationName = "Bounce"
+               
+           }
+        
+    </script>
+</body></html>

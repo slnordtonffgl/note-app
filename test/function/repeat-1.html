@@ -6,12 +6,20 @@
 </head>
 
 <body>
-    
+    <!-- <div class="kubik = ">HELLO</div>
+    <div class="kubik = ">HELLO</div>
+    <div class="kubik = ">HELLO</div>
+    <div class="kubik = ">HELLO</div>
+    <div class="kubik = ">HELLO</div>
+    -->
     <script>
-        document.body.innerHTML += `<div class="kubik = "> fhjfhhffh </div>`
-        var kubik = document.querySelector (".kubik")
+        /*    var i = 0
+        while(i < 10){
+            
+        document.body.innerHTML += `<div class="kubik = ">HELLO</div>`
+        var kubik = document.querySelector(".kubik")
         
-        
+        kubik.style.textAlign = "center"
         kubik.style.width = "100px"
         kubik.style.height = "100px"
         kubik.style.backgroundColor = 
@@ -19,6 +27,42 @@
     ${Math.random() * 255},
     ${Math.random() * 255},
     ${Math.random() * 255}
-       )` 
+       )`
+        i++ 
+         } */
+
+        var i = 0
+        while (i < 50) {
+
+            document.body.innerHTML += `<div class="kubik = ">HELLO</div>`
+            i++
+        }
+        var kubiks = document.querySelectorAll(".kubik")
+
+        var i = 0
+
+        while (i < kubiks.length) {
+            var kubik = kubiks[i]
+            kubik.style.textAlign = "center"
+            kubik.style.width = "100px"
+            kubik.style.height = "100px"
+            kubik.style.backgroundColor =
+                `rgb(
+    ${Math.random() * 255},
+    ${Math.random() * 255},
+    ${Math.random() * 255}
+       )`
+            i++
+        }
+        /*  var kubik2 = kubiks[1]
+        kubik2.style.textAlign = "center"
+        kubik2.style.width = "100px"
+        kubik2.style.height = "100px"
+        kubik2.style.backgroundColor =
+            `rgb(
+    ${Math.random() * 255},
+    ${Math.random() * 255},
+    ${Math.random() * 255}
+       )`*/
     </script>
 </body></html>
