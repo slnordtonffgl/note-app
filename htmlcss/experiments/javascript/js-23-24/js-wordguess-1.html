@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ecff9c;
+            color: rgba(234, 79, 247, 0.65);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Угодай Слово</h1>
+    <p id="wordOutput">_</p>
+    <input type="text" id="wordInput">
+    <button onclick="Checkletters()">Проверить буквы</button>
+
+    <script>
+        function Checkletters() {
+            var words = ["Пайтон", "Машина", "Программирование", "Окно"]
+
+            var wordOutput = document.querySelector("#wordOutput")
+            var wordInput = document.querySelector("#wordInput")
+
+            var index = Math.round(Math.random() * 3)
+
+            var chosenWord = words[index]
+
+            console.log(chosenWord)
+
+            wordOutput.textContent = chosenWord[0]
+
+            var inpValue = wordInput.value
+            var newWord = ""
+
+            var i = 0
+
+            while (i < chosenWord.length) {
+                var j = 0
+                while (j < inpValue.length) {
+                    console.log(inpValue[j], chosenWord[i] === inpValue[j])
+
+                    j += 1
+                }
+
+                /* if (i === 2) {
+                     newWord += "_"
+                 } else { */
+                newWord += chosenWord[i]
+                    //}
+
+
+                console.log(newWord)
+
+                i += 1
+
+                wordOutput.textContent = newWord
+            }
+        }
+
+    </script>
+</body>
+
+</html>

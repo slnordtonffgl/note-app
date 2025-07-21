@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 500px;
+            margin: auto;
+            font-family: inherit;
+            background-color: rgb(240, 159, 255);
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+            padding: 10px;
+            border-style: solid;
+            border-color: ;
+            border-width: 1px;
+            border-radius: 6px;
+        }
+        
+        button {
+            cursor: pointer;
+            color: #000000;
+            background-color: aquamarine;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+        }
+        
+        .comment {
+            background-color: #fffa76;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .user {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffa253;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Заголовок: язык для интерактивных сайтов!</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem error inventore deserunt itaque fugiat est sit accusamus, aliquam, veritatis enim obcaecati accusantium minima rerum earum!</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius asperiores corporis cupiditate repudiandae. Necessitatibus, nesciunt quia assumenda sapiente expedita quae labore magnam aperiam facilis delectus! Blanditiis iste, explicabo. Vel commodi atque, expedita velit deserunt laboriosam.</p>
+
+    <h2>Добавить комментарий:</h2>
+    <input type="text" id="userInput">
+    <br>
+    <textarea id="textInput"></textarea>
+    <button onclick="AddComment()">Отправить</button>
+
+    <h3>Комментарии:</h3>
+    <div id="comments">
+
+    </div>
+
+    <script>
+        var commentID = localStorage.getItem("nc_CommentID")
+
+        function AddComment() {
+            var user = document.querySelector("#userInput").value
+
+            var text = document.querySelector("#textInput").value
+
+            console.log(user, text)
+            if (user === "") {
+                alert("User не должен быть пустым!")
+                return
+            }
+
+            if (text === "") {
+                alert("текст не должен быть пустым!")
+                return
+
+            }
+
+            localStorage.setItem("nc_Comment" + commentID, text);
+            localStorage.setItem("nc_User" + commentID, user);
+            commentID++;
+
+            localStorage.setItem("nc_CommentID", commentID);
+
+            document.querySelector("#comments").innerHTML +=
+                `<div class="comment">
+                    <div class="user">${user}</div>
+                    <div class="text">${text}</div>
+                </div>`
+
+        }
+
+        function LoadComment() {
+
+            var i = 1;
+            while (i < commentID) {
+                var text = localStorage.getItem("nc_Comment" + i)
+                  var user = localStorage.getItem("nc_User" + i)
+
+
+                document.querySelector("#comments").innerHTML +=
+                    `<div class="comment">
+                    <img src='https://4kwallpapers.com/images/walls/thumbs_3t/8968.png'  width=100px>
+                    <div class="user">${user}</div>
+                    <div class="text">${text}</div>
+                </div>`
+                i++
+            }
+        }
+
+        LoadComment()
+
+    </script>
+</body>
+
+</html>

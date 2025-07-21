@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Note App</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/anim.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+
+<body>
+    <!--главная старица -->
+    <div id="main">
+        <h1>Note App</h1>
+        <div id="note-gallery">
+
+        </div>
+        <button id="note-add-btn" onclick="OpenModal()">+</button>
+    </div>
+    <div id="modal">
+        <button id="back-btn" onclick="CloseModal()">&lt;</button>
+        <div id="note-name">Заметка</div>
+        <textarea id="note-text"></textarea>
+
+        <!--модальное окно-->
+
+        <div id="modal-buttons">
+            <button id="btn-delete">Удалить</button>
+            <button id="btn-save" onclick="SaveNote()">Сохранить</button>
+        </div>
+    </div>
+
+    <!-- меню управления-->
+    <div id="control-menu">
+        <button id="ctrl-menu-delete" onclick="DeleteNote()">удалить</button>
+    </div>
+    <script>
+        var noteIndex = localStorage.getItem("na_noteIndex")
+        if (noteIndex === null)
+            noteIndex = 0
+
+        var main = document.querySelector("#main")
+        var modal = document.querySelector("#modal")
+        var addBtn = document.querySelector("#note-add-btn")
+
+        var controlMenu = document.querySelector("#control-menu")
+        controlMenu.style.display = "none"
+
+
+        function OpenModal() {
+            //document.querySelector("#main").style.display = "none"
+            //document.querySelector("#modal").style.display = "block"
+
+            addBtn.style.animationName = "AddBtnAnim"
+            addBtn.style.animationDuration = "1s"
+        }
+
+        function CloseModal() {
+            document.querySelector("#main").style.display = "block"
+            document.querySelector("#modal").style.display = "none"
+        }
+
+        function SaveNote() {
+            var textArea = document.querySelector("#note-text")
+            var text = textArea.value
+            var gallery = document.querySelector("#note-gallery")
+
+
+
+            gallery.innerHTML += `<div class="note">
+                <div class="note-delete-container">
+                    <button class="note-delete">x</button>
+                </div>
+                <div class="note-content">${text}</div>
+            </div>`
+
+            textArea.value = ""
+            CloseModal();
+
+            localStorage.setItem("na_note" + noteIndex, text)
+
+            noteIndex++
+            localStorage.setItem("na_noteIndex", noteIndex)
+        }
+
+        function LoadNote() {
+            var gallery = document.querySelector("#note-gallery")
+
+            var i = 0
+            noteIndex = localStorage.getItem("na_noteIndex")
+            if (noteIndex === null)
+                noteIndex = 0
+
+            while (i < noteIndex) {
+
+                var text = localStorage.getItem("na_note" + i)
+                gallery.innerHTML +=
+                    `<div class="note">
+                <div class="note-delete-container">
+                    <button class="note-delete">x</button>
+                </div>
+                <div class="note-content">${text}</div>
+            </div>`
+                i++
+            }
+        }
+        LoadNote()
+
+        function ShowControlMenu() {
+            var boxCheckd = false
+
+            var checkboxes = document.querySelectorAll(".note input")
+            var addBtn = document.querySelector("#note-add-btn")
+            var i = 0
+            while (i < checkboxes.length) {
+                if (checkboxes[i].checked) {
+                    boxCheckd = true
+                    break
+                }
+                i++
+
+            }
+
+            if (boxCheckd) {
+                controlMenu.style.display = "flex"
+                addBtn.style.display = "none"
+            } else {
+                controlMenu.style.display = "none"
+                addBtn.style.display = "block"
+            }
+        }
+        LoadNote()
+
+    </script>
+</body>
+
+</html>

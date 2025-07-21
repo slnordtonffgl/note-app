@@ -1,0 +1,30 @@
+body {
+       margin: 0px
+}
+main {
+    background-color: rgba(26, 214, 178, 0.81);
+    color: lightgoldenrodyellow;
+    padding: 25px;
+}
+
+/* ИНДИВИДУАЛЬНЫЕ СЕКЦИИ  */
+p {
+    margin: 0px;
+}
+img {
+    width: 500px;
+    /* height высота*/
+}
+#main-a {
+    margin: auto;
+    display: block;
+    background-color: rgb(252, 206, 11);
+    max-width: 200x;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    color: black
+}
+#main-a:hover {
+    background-color: gold;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="nameLen">
+    <button onclick="GetName()">Создать Имя</button>
+    <p id="output"></p>
+
+    <script>
+        function GetName() {
+            var cons = "qwrytpsdfghjklzxcvbnm"
+            var vows = "euioa"
+
+            var len = Number(document.querySelector("#nameLen").value)
+            var name = ""
+
+            var i = 0
+            while (i < len) {
+                var cIndex = Math.floor(Math.random() * cons.length) //0 до конца имени
+                name += cons[cIndex]
+                console.log(name)
+                i++
+
+                if(i >= len) break
+
+                var vIndex = Math.floor(Math.random() * vows.length) //0 до конца имени
+                name += vows[vIndex]
+                console.log(name)
+                i++
+
+            }
+            document.querySelector("#output").innerHTML += name + "<br>"
+        }
+
+    </script>
+</body>
+
+</html>

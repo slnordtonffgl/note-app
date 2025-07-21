@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        main {
+            max-width: 800%;
+            background-color: rgba(255, 157, 0, 0.71);
+            font-size: 100%;
+        }
+        
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: #87ebe7;
+        }
+        
+        .vw-vh-box {
+            width: 50vw;
+            height: 10vh;
+            background-color: rgba(235, 255, 0, 0.77);
+        }
+        
+        .pr-vh-box {
+            width: 100%;
+            height: 20vh;
+            background-color: rgb(21, 228, 253);
+        }
+        .em-box {
+           width: 10em;
+            height: 5em;
+            background-color:rgba(255, 255, 109, 0.67)
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <div>
+            200px x 100px
+        </div>
+
+        <!-- vw (vieport width) - % ШИРИНА ОКНА-->
+        <!-- vH (vieport width) - %  ВЫСОТА ОКНА-->
+        <div class="vw-vh-box">
+            50vw x 10vh
+        </div>
+
+        <!-- % - ширина или высота родительского элемента -->
+        <div class="pr-vh-box">
+            100% x 20vh
+        </div>
+         <!-- em - размер шрифта родительского элемента -->
+        <div class="em-box">
+            10em x 5em
+        </div>
+        
+    </main>
+
+
+</body>
+
+</html>

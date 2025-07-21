@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+        
+        img {
+            width: 500px;
+            transition-duration: 0.2s;
+            border-radius: 50px;
+        }
+        
+        img:hover {
+            transform: scale(1.035)
+        }
+        
+        img:active {
+            transform: scale(0.95)
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIhXCcyv0YU8EnbeVoKmMjZCakiZUuidHLXGpt4LjhpT1RSUsVJoAJhYnnQY55gej9TQ&usqp=CAU" onclick="AddPoint()">
+   
+   
+    <p id="score"></p>
+    <script>
+        var points = localStorage.getItem("clickerPoints");
+
+        function AddPoint() {
+            points++;
+            localStorage.setItem("clickerPoints", points)
+
+            document.querySelector("p").textContent = points;
+        }
+        document.querySelector("p").textContent = localStorage.getItem("clickerPoints")
+   
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="wordInput">
+<button onclick="ReverseWord() "> Отзеркалить Слово</button>
+   <p id="wordOutput">...</p>
+    <script>
+        function ReverseWord(){
+            var word = document.querySelector("#wordInput").value
+            var filtereWord = ""
+            var wordOutput = document.querySelector("#wordOutput")
+            var reverseWord = ""
+            
+            var i = word.length - 1
+            
+            wordOutput.textContent = ""
+            
+             while (i >= 0){
+              
+                if (word [i] != " ")
+                    filtereWord +=word [i]
+                i -= 1
+            }
+            
+            i = word.length - 1
+            
+            while (i >= 0){
+                console.log(word [i])
+                wordOutput.textContent += word [i]
+                if (word [i] != " ")
+                    reverseWord +=word [i]
+                i -= 1
+            }
+            
+            if ( filtereWord  === reverseWord){
+                wordOutput.textContent += "(это полиндром!)"
+            } else{
+                wordOutput.textContent += "(это обычное!)"
+            }
+        }
+    </script>
+</body>
+</html>

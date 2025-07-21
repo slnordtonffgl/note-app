@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Войти в систему</h2>
+    <input type="text" id="login">
+    <button onclick="CheckUser()">Вход</button>
+    <script>
+        var accounts = ["Игорь", "Гриша", "Стасямба", "Кику"]
+
+        function CheckUser() {
+            var login = document.querySelector("#login")
+            
+            var i = 0
+            while (i < accounts.length ){
+                console.log(accounts [i], i)
+                
+                if(login.value === accounts[i]){
+                  document.querySelector("body").innerHTML += "<p>  Привет Чувааак! " + accounts [i]+"</p>"
+                   return
+                } 
+                
+                i++
+            }
+                        
+              document.querySelector("body").innerHTML += "<p>Ты не чувак</p>" 
+
+        }
+
+    </script>
+</body>
+
+</html>

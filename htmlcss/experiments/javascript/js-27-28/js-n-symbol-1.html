@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Вывести кажды N-й символ</h2>
+    <input type="text" id="text">
+    <input type="text" id="number">
+    <button onclick="Output()">ПРИВЕТ</button>
+
+    <script>
+        function Output() {
+            var text = document.querySelector("#text")
+
+            //console.log(text.value)
+
+            var number = document.querySelector("#number").value
+
+            console.log(text.value[3])
+
+            var i = 0
+            while (i < text.value.length) {
+
+                console.log(text.value[i],i)
+                var step = Number(number.value)
+                i += step
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

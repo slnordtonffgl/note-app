@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        header {
+            background-color: aquamarine;
+            border-bottom-style: solid;
+            border-bottom-color: #4dadad;
+            border-bottom-width: 5px;
+            padding: 5px;
+        }
+        
+        img {
+            width: 5vw;
+            min-width: 35px;
+            max-width: 70px;
+            /* viewport width-ширина окна браузера  */
+            vertical-align: middle;
+            margin: 5px;
+        }
+        
+        h1 {
+            display: inline;
+            vertical-align: middle;
+            font-size:clamp (24px,2.5vw,32px);
+        }
+        
+        a {
+            background-color: rgba(127, 255, 0, 0.64);
+            color: black;
+            padding: clamp(3px,
+            1.75vw,
+            15x,
+            )/*функция() */
+            display: inline-block;
+            margin:10px clamp (10px,2vw,500px;);
+            text-decoration: none;
+            border-radius: 10px;
+            font-size:clamp (12px,2vw,16px);
+        }
+        
+        a:hover {
+            background-color: #18c918;
+            text-decoration: underline;
+            border-radius: 10px;
+            border-color: green;
+            border-width: medium;
+        }
+        
+        nav {
+            display: inline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/7522/7522112.png " alt="">
+        <h1>Zagolovok_1</h1>
+        <nav>
+            <a href=" ">Кнопка</a>
+            <a href=" ">Кнопка</a>
+            <a href=" ">Кнопка</a>
+        </nav>
+    </header>
+</body>
+
+</html>

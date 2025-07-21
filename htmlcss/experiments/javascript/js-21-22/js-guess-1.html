@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Генератор  случайных чисел</h1>
+    <p id="randOutput1">...</p>
+
+    <p id="randOut1">...</p>
+    <p id="randOut2">...</p>
+    <p id="randOut3">...</p>
+    
+    <input type="textr" name="" id="inp1">
+    <button onclick="CheckNum()">Проверка</button>
+    
+    <p id="result">Результат:</p>
+    
+    <script>
+        var randOutput1 = document.querySelector("#randOutput1")
+
+        var randOut1 = document.querySelector("#randOut1")
+        var randOut2 = document.querySelector("#randOut2")
+        var randOut3 = document.querySelector("#randOut3")
+        
+        var inp1 = document.querySelector("#inp1")
+        
+        var result = document.querySelector ("#result")
+        
+        console.log(inp1.textContent)
+        
+        console.log(randOutput1.textContent)
+
+        var randNum = Math.random() * 8
+
+        console.log(randNum)
+
+        randOutput1.textContent = randNum
+
+        var randInt1 = Math.round(randNum)
+        randOut1.textContent = randInt1
+
+        var randInt2 = Math.floor(randNum)
+        randOut2.textContent = randInt2
+
+        var randInt3 = Math.ceil(randNum)
+        randOut3.textContent = randInt3
+        
+        function CheckNum(){
+        result.textContent = Number (inp1.value) === randInt1  
+        
+        if (Number (inp1.value) === randInt1) {
+               result.textContent = "Ура победа!!!"  
+            }
+            else{
+                 result.textContent = "Ты прроиграл!!!"  
+            }
+            
+        }
+        
+
+    </script>
+</body>
+
+</html>

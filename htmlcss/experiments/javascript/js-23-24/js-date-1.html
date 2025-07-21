@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: rgba(56, 167, 167, 0.87);
+            color: rgb(255, 225, 186);
+        }
+        
+        button {
+            background-color: rgb(255, 209, 86);
+            color: #136fb2;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Время</h1>
+    <button onclick="showTime()">Показать Время</button>
+    <p id="timeOutput">...</p>
+
+     <button onclick="startTimer()">Начать таймер</button>
+      <button onclick="stopTimer ()">Остановить таймер</button>
+    <p id="timeOutput2">...</p>
+
+    <script>
+        var startTime = 0 
+        
+        function  startTimer(){
+                startTime = Date.now()
+            }
+        
+        function stopTimer (){
+               console.log ( Date.now() - startTime)
+            }
+        
+        
+        
+        
+        
+        function showTime() {
+            var timeOutput = document.querySelector("#timeOutput")
+
+            var t = Date.now()
+            var seconds = Math.floor(t / 1000)
+            var years = Math.floor ( seconds  / (60 * 60 * 24 * 365))
+
+            console.log(t)
+            timeOutput.innerText =
+                "ms : " + t +
+                " \n s :" + seconds + 
+                " \n years: " + years
+        }
+            
+    </script>
+</body>
+
+</html>

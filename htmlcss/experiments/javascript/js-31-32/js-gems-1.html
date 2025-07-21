@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onclick="test()" style="width: 100vw; height: 100vh;">
+    <script>
+        function test(){
+        var gems =  ["🍔","🍟","🧃"]
+        
+        var randindex = Math.round(Math.random() * (gems.length- 1))
+        
+        var solt1  = gems [randindex]
+        
+        console.log (randindex, solt1)
+        
+        document.querySelector("body").innerHTML += solt1
+        }
+    </script>
+</body>
+</html>

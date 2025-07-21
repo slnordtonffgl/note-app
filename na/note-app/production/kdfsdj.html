@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Note App</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <!-- Главная Страница -->
+    <div id="main">
+        <h1>Note App</h1>
+        <div id="note-gallery">
+
+        </div>
+        <button id="note-add-btn" onclick="OpenModal()">+</button>
+    </div>
+
+    <!-- Модальное Окно -->
+    <div id="modal">
+        <button id="back-btn" onclick="CloseModal()">&lt;</button>
+        <div id="note-name">Заметка</div>
+        <textarea id="note-text"></textarea>
+        <div id="modal-buttons">
+            <button id="btn-delete">Удалить💔</button>
+            <button id="btn-save" onclick="SaveNote()">Сохранить🧡</button>
+        </div>
+    </div>
+
+    <!-- меню управления-->
+    <div id="control-menu">
+        <button id="ctrl-menu-delete" onclick="DeleteNote()">удалить</button>
+    </div>
+
+    <script>
+        var noteIndex = localStorage.getItem("na_noteIndex")
+
+        var controlMenu = document.querySelector("#control-menu")
+        controlMenu.style.display = "none"
+
+        var selectedNoteIndex
+        var editMode = false
+
+
+        if (noteIndex === null)
+            noteIndex = 0
+
+        function OpenModal() {
+            document.querySelector("#main").style.display = "none"
+            document.querySelector("#modal").style.display = "flex"
+        }
+
+        function CloseModal() {
+            document.querySelector("#main").style.display = "block"
+            document.querySelector("#modal").style.display = "none"
+            document.querySelector("#note-text").value = ""
+        }
+
+        function SaveNote() {
+            var textArea = document.querySelector("#note-text")
+            var text = textArea.value
+            var gallery = document.querySelector("#note-gallery")
+            if (editMode) {
+                textArea.value = ""
+                CloseModal();
+                
+                localStorage.setItem("na_note" + selectedNoteIndex, text)
+                LoadNote()
+            } else {
+                gallery.innerHTML +=
+                    `<div class="note" onclick="EditNote(this)">
+                <div class="note-delete-container" onclick=" event.stopPropagation();ShowControlMenu()">
+                    <input type="checkbox">
+                    
+                </div>
+                <div class="note-content">${text}</div>
+            </div>`
+
+                textArea.value = ""
+                CloseModal();
+
+                localStorage.setItem("na_note" + noteIndex, text)
+
+
+                noteIndex++
+                localStorage.setItem("na_noteIndex", noteIndex)
+            }
+        }
+
+        function LoadNote() {
+            var gallery = document.querySelector("#note-gallery")
+            gallery.innerHTML = ""
+            var i = 0
+
+            noteIndex = localStorage.getItem("na_noteIndex")
+            if (noteIndex === null)
+                noteIndex = 0
+
+            while (i < noteIndex) {
+                var text = localStorage.getItem("na_note" + i)
+                if (text != null) {
+
+                    gallery.innerHTML +=
+                        `<div class="note" onclick="EditNote(this)">
+                    <div class="note-delete-container">
+                        <input type="checkbox" onclick="event.stopPropagation();ShowControlMenu()">
+                      
+                    </div>
+                    <div class="note-content">${text}</div>
+                </div>`
+                }
+                i++
+
+            }
+        }
+
+        function DeleteNote() {
+            console.log("УДАЛЕНИЕ ЗАМЕТКИ!!!")
+            var notes = document.querySelectorAll(".note")
+
+            console.log(notes)
+
+            var i = 0
+            while (i < notes.length) {
+
+                var note = notes[i]
+                if (note === undefined) {
+                    continue
+                    i++
+                }
+
+
+                var checkbox = note.querySelector("input")
+
+                if (checkbox.checked === true) {
+                    var valueToDelete = note.querySelector(".note-content").textContent
+
+                    console.log("valueToDelete:", valueToDelete)
+
+                    var j = 0
+                    while (j < noteIndex) {
+                        var key = "na_note" + j
+                        var savedNote = localStorage.getItem(key)
+
+                        if (savedNote != null) {
+                            if (savedNote === valueToDelete) {
+                                localStorage.removeItem(key)
+                            }
+                        }
+
+                        j++
+                    }
+
+
+                }
+                i++
+
+            }
+
+            LoadNote()
+            ShowControlMenu()
+        }
+
+        function EditNote(noteElement) {
+            console.log("редактирование заметки!!!", noteElement)
+            console.log(noteElement.querySelector(".note-content").textContent)
+            /*
+            план:
+            1. onclick функция(+)
+            2. получение выбранно заметки(+)
+            3. открыть модальное окно(+)
+            4. текст заметк вставить в модальное окно (+)
+            5. определить индекс заметки в бд (базе данных)(+)
+            6. пересохранить заметку в бд(+)
+            7. показать заметку заново(+)
+            */
+            //открыть модальное окно
+            OpenModal()
+            //текст заметк вставить в модальное окно 
+            var editText = noteElement.querySelector(".note-content").textContent
+            var textArea = document.querySelector("#note-text")
+            textArea.value = editText
+
+            var i = 0
+            while (i < noteIndex) {
+                var note = localStorage.getItem("na_note" + i)
+                if (editText === note) {
+                    selectedNoteIndex = i
+                    editMode = true
+                    break
+                }
+                i++
+            }
+
+        }
+
+        function ShowControlMenu() {
+            var boxCheckd = false
+
+            var checkboxes = document.querySelectorAll(".note input")
+            var addBtn = document.querySelector("#note-add-btn")
+            var i = 0
+            while (i < checkboxes.length) {
+                if (checkboxes[i].checked) {
+                    boxCheckd = true
+                    break
+                }
+                i++
+
+            }
+
+            if (boxCheckd) {
+                controlMenu.style.display = "flex"
+                addBtn.style.display = "none"
+            } else {
+                controlMenu.style.display = "none"
+                addBtn.style.display = "block"
+            }
+        }
+        LoadNote()
+    </script>
+</body></html>

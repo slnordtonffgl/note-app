@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  Задание:
+ Создать прототип "ленты" соцыальной сети.
+ 
+Функционал:
+ - Генерирование постов:
+     - Имя  и фото аккаунта
+     - фото поста
+     - текст поста
+     - Лаайки,Избранные,Коменты
+ 
+Элементы:
+ - Пост:
+     - Имя  и фото аккаунта
+     - фото поста
+     - текст поста
+     - Лаайки,Избранные,Коменты
+     - Время загрузки
+
+ - Модули:
+     - Генерации текста из набора слов "Lorem ipsum"
+     - Случайный выбор картинок из готового набора.
+     - Генерция чисел через Math.Random().
+     - Генерация времени через Date.now().
+     - Создание постов при прокрутке вниз.
+     
+ План выполнения:
+ 1. Дизайн Поста
+ 2. Скрипт Генерация поста
+    2.1 Генирация Картинки
+      2.1.1 Скачать набора(5-10)
+      2.1.2 Модуль выбора картинок
+      
+    2.2 Генерация Текста
+      2.2.1 Создать набор слов
+      2.2.2 Модуль создания текста
+      
+    2.3 Генерация Чисел
+    2.4 Генерация Времяни
+    
+3. Дизайн ленты
+4. Скрипт ленты -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Post</title>
+        <style>
+            :root {
+                --primary: #e17fff;
+                --secondary: #ffd084;
+                --tertiary: #a7e8de;
+            }
+            
+            body {
+                background-color: var(--secondary);
+            }
+            
+            .post {
+                background-color: var(--primary);
+                width: 250px;
+                height: 300px;
+                padding: 5px;
+                border-radius: 5px;
+                border-style: solid;
+                box-shadow: 0px 10px 5px #a0a2a0;
+                border-color: #9a20aa;
+            }
+            
+            .post-account {
+                display: flex;
+                width: 100%;
+                padding-bottom: 10px;
+            }
+            
+            .post-account-img {
+                background-color: rgba(176, 255, 149, 0.88);
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                overflow: hidden;
+            }
+            
+            .post-account-img img {
+                width: 100%;
+                height: 100%;
+            }
+            
+            .post-account-name {
+                width: 80%;
+                height: 100%;
+            }
+            
+            .post-photo {
+                background-color: #fff5bd;
+                width: 250px;
+                height: 150px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                overflow: hidden;
+            }
+            
+            .post-photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .post-info {
+                background-color: var(--tertiary);
+                width: 100%;
+                height: 100px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="post">
+            <div class="post-account">
+                <div class="post-account-img">
+                    <img src="imgs/hfed8cat0i1d-shrek.webp" alt="">
+                </div>
+                <div class="post-account-name"></div>
+            </div>
+            <div class="post-photo"> <img src="imgs/hfed8cat0i1d-shrek.webp" alt=""></div>
+            <div class="post-info"></div>
+        </div>
+
+
+
+        <script>
+            var postPhoto = document.querySelector(".post-photo img")
+            console.log(postPhoto)
+
+            var imgIndex = Math.ceil(Math.random() * 5)
+
+            postPhoto.src = `imgs/${imgIndex}.jpg`
+
+            var postAccountImg = document.querySelector(".post-account-img img")
+            console.log(postPhoto)
+
+            var imgIndex = Math.ceil(Math.random() * 5)
+
+            postAccountImg.src = `imgs/${imgIndex}.jpg`
+
+            //генерация текста
+            var wordString = " Lorem ipsum dolor sit amet consectetur adipisicing elit Voluptatibus tempore quam debitis amet vero nesciunt inventore aperiam eum ad natus recusandae iste vel voluptates suscipit repellendus in blanditiis fuga eaque esse ipsa corporis possimus cumque voluptate magnam Debitis expedita adipisci provident culpa error at voluptate nobis ratione perferendis voluptatem mollitia unde corporis quis officiis neque maiores porro molestias recusandae inventore iusto minus tenetur totam ipsam Possimus ea necessitatibus asperiores harum excepturi officiis doloremque dignissimos tempora dolor corporis ut repellat dolorem distinctio libero ex voluptate dolorum explicabo minima saepe eos modi deserunt similique ducimus Temporibus consectetur pariatur necessitatibus soluta minima minus"
+
+            var i = 0
+            var current = 0
+            var target = Math.ceil(Math.random() * 37)
+            var word = ""
+            while (i < wordString.length) {
+                word += wordString[i]
+                if (wordString[i] === " ") {
+                    current += 1
+                }
+                if (current >= target) {
+                    break
+                } else if (wordString[i] === " ") {
+                    word = ""
+                }
+                i++
+            }
+            console.log(word, current, target)
+
+        </script>
+    </body>
+
+    </html>

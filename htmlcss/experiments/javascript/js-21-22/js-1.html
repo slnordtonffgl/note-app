@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(245, 253, 35, 0.7);
+            color: rgba(51, 51, 51, 0.76);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #953795;
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #dd2ca6;
+            color: rgb(209, 255, 251);
+            border-style: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px #868686;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00ffff;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        #volume, #otvet {
+            font-weight: bold;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+
+        input[type="text"] {
+            display: block;
+            margin: 5px auto 15px;
+            padding: 8px;
+             width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h1>Javascript #1</h1>
+    <button onclick="console.log('Эта кнопка работает!')">Кнопка</button>
+    <p id="volume">----</p>
+    <button onclick="AddVol()">Добавить +1</button>
+    <button onclick="SubtractVol()">Убавить -1</button>
+
+    <p>Число 1</p>
+    <input type="text" id="input1">
+
+    <p>Число 2</p>
+    <input type="text" id="input2">
+
+    <button onclick="InpAdd()">Сложить</button>
+    <p id="otvet">Ответ:</p>
+
+
+    <script>
+        
+        
+        // Выввод в консоль
+        console.log(1234)
+
+        //Текст(Строки)
+        console.log("pypok", "пупок", 2025)
+
+        console.log("Год" + 2025)
+
+        //Арифметика
+        console.log(2 + 2, 2 - 2, 2 * 2, 2 / 2)
+
+        console.log(2 + 2 / 2 + 2, (2 + 2) / (2 + 2))
+
+        //Логика 
+
+        console.log(1000 > 100, 1000 < 100)
+
+        console.log(1 / (4 > 2))
+        console.log(1 / (4 < 2))
+
+        console.log(true + false, false * true)
+
+        console.log(1 / ((4 > 2) * (6 < 3)))
+
+        console.log(1 / ((4 > 2) + (6 < 3)))
+
+        console.log(2 == 2)
+        console.log(2 != 2)
+
+        //Переменные (variable)
+        var chislo = 1234
+        console.log(chislo)
+
+        chislo = chislo - 4
+        console.log(chislo)
+
+        chislo = chislo - 30
+        console.log(chislo)
+
+        var chislo1 = 5
+        var chislo2 = 7
+        var chisloSuma
+
+        chisloSuma = chislo1 + chislo2
+        console.log(chisloSuma)
+
+        var num1 = 8
+        var num2 = 12
+
+        function myFunc() {
+            console.log("Это моя функиция!")
+        }
+
+        myFunc()
+
+        function Greetings(name) {
+            console.log("Привет", name)
+        }
+
+        Greetings("Гриша")
+        Greetings("Миша")
+
+        var NumSum
+
+        function AddNums(a, b) {
+            numSum = a + b
+        }
+
+        AddNums(5, 7)
+        console.log(numSum)
+        AddNums(5, 7)
+        console.log(numSum)
+
+        var n1 = 5
+        var n2 = 2
+        var n3 = 7
+
+        function Add(a, b) {
+            return a + b
+        }
+
+        function Subtract(a, b) {
+            return a - b
+        }
+        console.log(Add(9, 8))
+
+        console.log(Subtract(Add(n1, n2), n3))
+
+        var volumeSign = document.querySelector("#volume")
+
+
+        var volume = 50;
+
+
+
+        function AddVol() {
+            volume = volume + 1
+            console.log("volume:", volume)
+            volumeSign.textContent = "Громкость: " + volume
+        }
+
+        function SubtractVol() {
+            volume = volume - 1
+            console.log("volume:", volume)
+            volumeSign.textContent = "Громкость: " + volume
+        }
+
+        console.log(document.querySelector("#volume").volumeSign)
+
+        var input1 = document.querySelector("#input1")
+        var input2 = document.querySelector("#input2")
+        
+        var otvet = document.querySelector("#otvet")
+        
+        
+        function InpAdd(){
+         otvet.textContent = Number(input1.value) + Number(input2.value);   
+        }
+          
+       
+    </script>
+</body>
+
+</html>
