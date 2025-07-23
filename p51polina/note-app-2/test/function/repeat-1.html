@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    <div class="box"> hello </div>
+    <div class="box"> hello </div>
+    <div class="box"> hello </div>
+    <div class="box"> hello </div>
+    <div class="box"> hello </div>
+    -->
+
+    <script>
+        //цикл: while(i < 10), var i = 0, i++
+        //как-то настроить стили для всех:
+        // 1. либо по одиночке (как мы уже делаем)
+        // 2. либо все сразу
+
+        /*var i = 0
+        while(i < 10){
+            //нужно добавить div с классом на страницу
+            document.body.innerHTML += `<div class="box"> hello </div>`
+
+            //обратится к этому div
+            var box = document.querySelector(".box")
+    
+            //настроить его стиль через style
+            //задать случайный цвет фона
+            //настроить размер
+            box.style.width = "100px"
+            box.style.height = "100px"
+
+            box.style.backgroundColor =
+                `rgb(
+                    ${Math.random() * 255},
+                    ${Math.random() * 255},
+                    ${Math.random() * 255}
+                )`
+            i++
+        }*/
+        
+        var i = 0
+        while(i < 100){
+            //нужно добавить div с классом на страницу
+            document.body.innerHTML += `<div class="box"> hello </div>`
+            i++
+        }
+
+
+        var boxes = document.querySelectorAll(".box")
+        
+        var i = 0
+        
+        while(i < boxes.length){
+            var box = boxes[i]
+            box.style.width = "100px"
+            box.style.height = "100px"
+
+            box.style.backgroundColor =
+                `rgb(
+                        ${Math.random() * 255},
+                        ${Math.random() * 255},
+                        ${Math.random() * 255}
+                    )`
+            i++
+        }
+        
+        
+        /*var box2 = boxes[1]
+        box2.style.width = "100px"
+        box2.style.height = "100px"
+
+        box2.style.backgroundColor =
+            `rgb(
+                    ${Math.random() * 255},
+                    ${Math.random() * 255},
+                    ${Math.random() * 255}
+                )`*/
+    </script>
+</body></html>

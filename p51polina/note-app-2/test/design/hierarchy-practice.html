@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hierarchy</title>
+    <link rel="stylesheet" href="hp-css/header.css">
+    <style>
+        body{
+            background-color: #333333;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        :root{
+            --primary-color: #e6ccff;
+            --secondary-color: #598049;
+            --tertiary-color: #d4d4d4;
+        }
+        
+        .container{
+            display: flex;
+            gap: 24px;
+            height: 1200px;
+        }
+        
+        .main{
+            flex-grow: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .side{
+            background-color: lightgray;
+            flex-grow: 1;
+        }
+        
+        .video-frame{
+            background-color: black;
+            height: 360px;
+        }
+        .video-info{
+            background-color: var(--secondary-color);
+            padding: 16px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .video-title{
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--primary-color);
+            line-height: 2.5;
+        }
+        .video-subtitle{
+            font-size: 12px;
+            color: var(--tertiary-color);
+        }
+        .comments {
+            background-color: #a5a5a5;
+            flex-grow: 1;
+            margin-top: 24px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            overflow: hidden;
+        }
+        .comment{
+            display: flex;
+            background-color: var(--secondary-color);
+            padding: 10px;
+            background: linear-gradient(#a4be9e, var(--secondary-color))
+        }
+        .avatar{
+            width: 36px;
+            height: 36px;
+            background-color: var(--tertiary-color);
+            border-radius: 100%;
+        }
+        .comment-text-box{
+            padding-left: 10px;
+        }
+        .username{
+            font-size: 12px;
+            color: var(--tertiary-color)
+        }
+        .comment-text{
+            color: var(--primary-color)
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Иерархический Экземпляр</div>
+    <div class="container">
+        <div class="main">
+            <div class="video-frame"></div>
+            <div class="video-info">
+                <div class="video-title">Крутое Видео 2025</div>
+                <div class="video-subtitle">25.06.2025</div>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <div class="comment-text-box">
+                        <div class="username">@Username</div>
+                        <div class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem.</div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <div class="comment-text-box">
+                        <div class="username">@Username</div>
+                        <div class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side"></div>
+    </div>
+</body>
+</html>

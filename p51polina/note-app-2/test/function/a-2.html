@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anim 2</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: yellow;
+        }
+        #center-btn {
+            position: fixed;
+            top: 5%;
+            left: 5%;
+            width: 10%;
+            height: 5%;
+            animation-name: none;
+            animation-duration: 0.7s;
+            animation-fill-mode: forwards;
+            z-index: 1;
+        }
+        
+        #modal{
+            background: darkgreen;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            animation-name: none;
+            animation-duration: 0.7s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes Expand{
+            70%{
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 1;
+            }
+            100%{
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes Appear{
+            70%{
+                display: none;
+            }
+            100%{
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <button id="center-btn" onclick="Expand()">click here!</button>
+    </div>
+    
+    <div id="modal">
+        
+    </div>
+    
+    <script>
+        function Expand(){
+            document.querySelector("#center-btn").style.animationName = "Expand";
+            document.querySelector("#modal").style.animationName = "Appear";
+        }
+    </script>
+</body></html>

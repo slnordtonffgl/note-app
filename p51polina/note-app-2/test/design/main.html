@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        #note-gallery{
+            background-color: #646464;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-content: flex-start;
+        }
+        .note{
+            background-color: #cccccc;
+            height: 200px;
+            width: 200px;
+            border-style: solid;
+            /*flex-grow: 1;*/
+            overflow: hidden;
+        }
+        
+        .note-delete-container{
+            text-align: right;
+        }
+        
+        #note-add-btn{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            font-size: 80px;
+            border-radius: 100%;
+            width: 100px;
+            height: 100px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Note App</h1>
+    <div id="note-gallery">
+        <div class="note">
+           <div class="note-delete-container">
+               <button class="note-delete">X</button>
+           </div>
+            <div class="note-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ad laborum maxime commodi, quos enim ullam cum minima, voluptatum, assumenda sunt! Aut suscipit obcaecati, at! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ad laborum maxime commodi, quos enim ullam cum minima, voluptatum, assumenda sunt! Aut suscipit obcaecati, at!</div>
+        </div>
+    </div>
+    <button id="note-add-btn">+</button>
+    
+    <script>
+        var note = document.querySelector("#note-gallery").innerHTML;
+        
+        /* 
+            Функциональные Требования:
+                1. Обращение к шаблону (есть!)
+                2. Размножить шаблон на странице
+                    2.1 Создать цикл (while)
+                        - var i, i++, while(i<end), var end
+                    2.2 Добавлять шаблон в note-gallery (innerHTML)
+                        - innerHTML += note
+        */
+        
+        var i = 0
+        var end = 50
+        while (i<end){
+            console.log(i)
+            document.querySelector("#note-gallery").innerHTML += note
+            i++
+        }
+    </script>
+</body>
+</html>
